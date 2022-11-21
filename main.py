@@ -1,30 +1,24 @@
 import csv
 
 flag = 0
-with open('civic.csv', 'r', newline='') as csvfile:
-    table = csv.reader(csvfile, delimiter=';', quotechar='|')
-    # print(list(table))
-    for row in list(table)[3:5]:
-        print(row[0])
-        # for r in row[0]:
-        #     print(r)
-    #     #if (int(row[8]) < 7000) and (int(row[8]) > 2000):
-            #print(row[0], row[8])
-
-    '''search = input('Search: ')
-    f = open('d:/itmo/python/L1/result.txt', 'w')
+search = input('Search for: ')
+f = open('result.txt','w')
+with open('civic.csv','r') as csvfile:
+    table = csv.reader(csvfile, delimiter = ';')
     for row in table:
-        data = str(row[2]).lower()
-        index = data.find(search.lower())
+        #if (int(row[8]) >= 7000):
+            # print(row[2], ' ', row[8])
+        lower_case = row[2].lower()
+        index = lower_case.find(search.lower())
         if (index != -1):
-            print(row)
+            print(len(row[2]))
+
+            #row[8].replace(',','.')
+
             flag = 1
-            f.write(row[0] + ". " + row[2] + ". Стоимость " + row[8] + " рублей.\n")
+            f.write(row[0] + ' ' + row[2] + ' Стоимость: ' + row[8] + ' рублей.\n')
 
     if (flag == 0):
         print("Nothing found.")
 
-    f.close()'''
-
-
-
+f.close()
