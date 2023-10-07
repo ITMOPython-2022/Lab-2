@@ -6,7 +6,7 @@ output = open('result.txt', 'w')
 search = input('Search for: ')
 with open('civic.csv', 'r', encoding='windows-1251') as csvfile:
     table = reader(csvfile, delimiter=';')
-    for row in list(table)[20:50]:
+    for row in table:
         lower_case = row[2].lower()
         index = lower_case.find(search.lower())
         if index != -1:
