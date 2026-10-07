@@ -1,0 +1,20 @@
+from csv import reader
+
+def search(table): 
+    flag = 0 
+    for row in table:
+        if len(row[1]) > 30:
+            flag += 1
+            print(row[1])
+    if flag ==0: 
+        print('Ничего не найдено :(')
+    else: 
+        print(f'Найдено записей: {flag}')
+
+def lenght(string): 
+    lower_case = string.replace(' ', '')
+    return len(lower_case)
+
+with open('books.csv', 'r') as csvfile: 
+    table = reader(csvfile, delimiter=';') 
+    search(table)
